@@ -66,8 +66,10 @@ Resolve CORS issue:
 One of the challenges of using node and VS together is dealing with CORS (Cross-Origin Resource Sharing). Typically, you’ll want the Angular node application to reside in its own project (an empty web project if the VS Node project extension is unavailable), and an API running as a separate MVC Web API project. This will cause CORS issues trying to connect the front end to the API.
 Here are the settings to fix this (your text editor must be running in Administrator mode):
 [*NOTE:  These solutions are intended for a developer’s local development machine and should NOT be applied as is to production servers!! NEVER use a wildcard in a real environment!!!]
+
 http://blog.jonathanchannon.com/2013/09/16/enabling-cors-in-iisexpress/
-C:\Users\*USERNAME*\Documents\IISExpress\config\applicationhost.config
+
+(VS2013 location: C:\Users\*USERNAME*\Documents\IISExpress\config\applicationhost.config)
 
         <httpProtocol>
             <customHeaders>
