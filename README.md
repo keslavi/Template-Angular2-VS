@@ -68,6 +68,7 @@ Here are the settings to fix this (your text editor must be running in Administr
 [*NOTE:  These solutions are intended for a developer’s local development machine and should NOT be applied as is to production servers!! NEVER use a wildcard in a real environment!!!]
 http://blog.jonathanchannon.com/2013/09/16/enabling-cors-in-iisexpress/
 C:\Users\*USERNAME*\Documents\IISExpress\config\applicationhost.config
+
         <httpProtocol>
             <customHeaders>
                 <clear />
