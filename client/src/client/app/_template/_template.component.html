@@ -1,0 +1,81 @@
+<h2>Template</h2>
+ 
+<span [hidden]="ENV==='prod'">
+                <br/> 
+                <span (click)="showModel=!showModel" class="pull-right" style='text-decoration: underline;color: green '>
+                                * (Dev only Show model; normally placed bottom right)
+                </span>
+                <span *ngIf="showModel">
+                                model:
+                                <textarea class="form-control" rows='10' cols='20'>{{vm | json}}</textarea>
+                </span>
+</span>
+ 
+ 
+<br/>
+<button (click)='getInitialData()' >Get Data</button>
+<table>
+                <tr>
+                                <td>
+expected (sample):<br/>
+<textarea rows="12" cols="24" style="color:red">
+{
+  "init": {
+    "Text": "abc",
+    "Value": "123"
+  }
+}
+(sample)</textarea>
+                                </td>
+                                <td>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                </td>
+                                <td>
+                                                Recieved:
+                                                <br/>
+                                                <textarea rows="12" cols="24">{{vm | json}}</textarea>
+                                </td>
+                </tr>
+</table>
+<br/>
+                <br/> 
+                <span (click)="readme=!readme">
+                                <h2 style='text-decoration: underline;color:green'>README! CORS Issue and Setup</h2><br/><br/>
+                </span>
+                <span *ngIf="readme">
+                <h2>Template http call instructions:</h2>
+<span style="margin: 0; line-height: 125%">    
+C# API (in this case, pointing at VS2013 webapi 'http://localhost:9000/server/api/zSample')
+<br/><span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">ZSampleController</span> : ApiController
+<br/>   {{ '{' }}
+<br/>&nbsp;&nbsp;<span style="color: #888888">// GET: api/ZSample</span>
+<br/>&nbsp;&nbsp;<span style="color: #008800; font-weight: bold">public</span> IHttpActionResult <span style="color: #0066BB; font-weight: bold">Get</span>()
+<br/>&nbsp;&nbsp;{{ '{' }}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;                                          Template ret = <span style="color: #008800; font-weight: bold">new</span> Template(){{ '{' }} Text = <span style="background-color: #fff0f0">"text"</span>, Value = <span style="background-color: #fff0f0">"value"</span> };
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;                                          <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0066BB; font-weight: bold">Ok</span>(ret);
+<br/>&nbsp;&nbsp;        }
+<br/>}
+</span>
+ 
+<br/> <span style="color:red">note: To Resolve CORS error in dev environment, (NEVER USE * IN PROD), modify applicationhost.config:</span>
+<br/>&nbsp;&nbsp;* in editor that is running as admin, edit:
+<br/>&nbsp;&nbsp;&nbsp;&nbsp; 'C:\Users\*USERNAME*\Documents\IISExpress\config\applicationhost.config'
+<br/>&nbsp;&nbsp;* add the following:
+<br/>
+<textarea cols='30' rows='12'>
+<httpProtocol>
+                <customHeaders>
+                                <clear />
+                                <add name="Access-Control-Allow-Origin" value="*"/>
+                                <add name="Access-Control-Allow-Headers" value="Accept, Origin, Content-Type"/>
+                                <add name="Access-Control-Allow-Methods" value="GET, POST, PUT, DELETE, OPTIONS"/>             
+                </customHeaders>
+                <redirectHeaders>
+                                <clear />
+                </redirectHeaders>
+</httpProtocol>
+</textarea>
+<br/>
+ 
+ 
+                </span>

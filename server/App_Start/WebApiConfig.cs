@@ -15,6 +15,7 @@ namespace server
 
             // Web API routes
             config.MapHttpAttributeRoutes();
+			config.Formatters.Add(new BrowserJsonFormatter());
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

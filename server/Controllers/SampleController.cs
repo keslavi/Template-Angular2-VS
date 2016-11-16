@@ -15,9 +15,10 @@ namespace server.Controllers
     public class SampleController : ApiController
     {
         // GET: api/Sample
-        public IEnumerable<string> Get()
+        public IHttpActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+			Sample ret = new Sample() { text = "abc", value = "123" };
+			return Ok(ret);
         }
 
         // GET: api/Sample/5
@@ -27,12 +28,13 @@ namespace server.Controllers
         }
 
         // POST: api/Sample
-        public void Post([FromBody]string value)
+        public IHttpActionResult Post([FromBody]Sample sample)
         {
-        }
+			return Ok(new Sample() { text = "def", value = "456" });
+		}
 
-        // PUT: api/Sample/5
-        public void Put(int id, [FromBody]string value)
+		// PUT: api/Sample/5
+		public void Put(int id, [FromBody]string value)
         {
         }
 

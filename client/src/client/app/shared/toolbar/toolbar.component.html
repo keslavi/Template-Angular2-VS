@@ -12,14 +12,13 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li [class.active]="activePath==='/' || !(activePath)" ><a [routerLink]="['/']" (click)="activePath='/'" >Home</a></li>
-              <li [class.active]="activePath==='/asset'" ><a [routerLink]="['/asset']" (click)="activePath='/asset'">Quick Discovery</a></li>
               <li [class.active]="activePath==='/about'" ><a [routerLink]="['/about']" (click)="activePath='/about'">About</a></li>
                                                                 <li class="dropdown"  [hidden]="ENV==='prod'">
                                                                                 <a tabindex="0" data-toggle="dropdown" data-submenu>
                                                                                                 (Dev)<span class="caret"></span>
                                                                                 </a>
                                                                                 <ul class="dropdown-menu">
-                                                                                                <li [class.active]="activePath==='/template'" ><a [routerLink]="['/template']" (click)="activePath='/template'">Template</a></li>
+                                                                                                <li [class.active]="activePath==='/_template'" ><a [routerLink]="['/_template']" (click)="activePath='/_template'">Template</a></li>
                                                                                 </ul>
                                                                 </li>
             </ul>
