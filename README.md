@@ -46,19 +46,21 @@ IIS Express Layout:
 
 manually adjust the files paths prior to starting the project. 
 
+        <sites>
             <site name="server" id="2">
                 <application path="/" applicationPool="Clr4IntegratedAppPool">
-                    <virtualDirectory path="/" physicalPath="C:\data\dev\ML\Template-Angular2-VS\client\dist\dev" />
-                    <virtualDirectory path="/node_modules" physicalPath="C:\data\dev\ML\Template-Angular2-VS-VS\client\node_modules" />
+                    <virtualDirectory path="/" physicalPath="D:\data\dev\Template-Angular2-VS\client\dist\dev" />
+                    <virtualDirectory path="/node_modules" physicalPath="D:\data\dev\Template-Angular2-VS\client\node_modules" />
                 </application>
                 <application path="/server" applicationPool="Clr4IntegratedAppPool">
-                    <virtualDirectory path="/" physicalPath="C:\data\dev\ML\Template-Angular2-VS\server" />
+                    <virtualDirectory path="/" physicalPath="D:\data\dev\Template-Angular2-VS\server" />
                 </application>
                 <bindings>
-                    <binding protocol="http" bindingInformation="*:9000:localhost" />
+                    <binding protocol="http" bindingInformation="*:9005:localhost" />
                 </bindings>
             </site>
-
+        </sites>
+        
 When building services in Angular it is recommended in Dev to set them with the full url so that they will run correctly in both Node's webserver and IISExpress. 
 
 Resolve CORS issue: 
@@ -76,7 +78,7 @@ http://blog.jonathanchannon.com/2013/09/16/enabling-cors-in-iisexpress/
                 <clear />
                 <add name="X-Powered-By" value="ASP.NET" />       
                 <add name="Access-Control-Allow-Origin" value="*" />
-                <add name="Allow-Control-Allow-Origin" value="*" /><!—may need explicit valuesà
+                <add name="Allow-Control-Allow-Origin" value="*" /><!—may need explicit values
                 <add name="Access-Control-Allow-Headers" value="Accept, Origin, Content-Type" />
                 <add name="Access-Control-Allow-Methods" value="GET, POST, PUT, DELETE, OPTIONS" />                          
             </customHeaders>
